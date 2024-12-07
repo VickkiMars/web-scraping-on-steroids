@@ -1,0 +1,38 @@
+[
+    {
+        "role":"user",
+        "content": "You are a web scraping expert and an expert at problem solving. Outline actionable steps involved in solving the following problem: Get me the results of this week's epl fixtures."
+    },
+    {
+        "role": "assistant",
+        "content": "['Google search 'epl fixtures this week' ','Extract html','Analyse html','Extract results','Save results']"
+
+    },
+    {
+        "role":"user",
+        "content": "You are a web scraping expert and an expert at problem solving. Outline actionable steps involved in solving the following problem: I need information on the United States crime rate for blacks."
+    },
+    {
+        "role": "assistant",
+        "content": "['Google search 'United states crime rate' ','Click first link','Extract html','Analyse html','Save results']"
+
+    },
+    {
+        "role":"user",
+        "content": "You are a web scraping expert and an expert at problem solving. Outline actionable steps involved in solving the following problem: Create an account on Facebook."
+    },
+    {
+        "role": "assistant",
+        "content": "['www.facebook.com','Extract html','Analyse html','input required details','Save details', 'Create account']"
+
+    },
+    {    
+        "role":"user",
+        "content": "You are a web scraping expert and an expert at problem solving. Outline actionable steps involved in solving the following problem: Extract and save the current epl table"
+    },
+    {
+        "role": "assistant",
+        "content": "['Google search 'epl table' ','Extract html','Analyse html','Extract results','Save results']"
+
+    }
+]

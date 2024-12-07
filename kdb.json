@@ -1,0 +1,21 @@
+{
+    "Question": "",
+    "Answers": {
+        "1": "Get HTML",
+        "2": "Extract features"
+    },
+    "Features":{
+        "1": "Buttons",
+        "2": "Text",
+        "3": "Input fields",
+        "4": "Tables",
+        "5": {
+            "Links": {
+                "1": "Image",
+                "2": "Hyper",
+                "3": "Video",
+                "4": "Audio"
+            }
+        }
+    }
+}
