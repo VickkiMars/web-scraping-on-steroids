@@ -1,11 +1,12 @@
 from bs4 import BeautifulSoup
 import requests
-from utils import determine_type, final_answer, action, click_link, what_next
+from utils import determine_type, final_answer, action, what_next, enter_input, click
 from base import ask
+from typing import Any, Union
 
 action_space = []
 
-def get_html(url):
+def get_html(url: str) -> Union[dict, str]:
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url)
 
@@ -16,7 +17,7 @@ def get_html(url):
         print(f"Failed to fetch webpage {url}. Status code: {response.status_code}")
     return html_content
 
-def extract(url):
+def extract(url:str) -> Union[dict, str]:
     features = ask(web=get_html(url=url))
     # links = features["links"]
     # buttons = features["buttons"]
@@ -25,7 +26,7 @@ def extract(url):
     # tables = features["tables"]
     return features
 
-def recurr(query, links, url):
+def recurr(query: str, searchable:str, url:str) -> Any:
     features = extract(url)
     response = what_next(query, features)
     if response == "Yes":
@@ -41,18 +42,19 @@ def recurr(query, links, url):
         reply = action(type_, query, features[response])
 
         if type_ == "links":
-            response = click_link(url, reply)
+            response = click(type_, url, reply)
         elif type_ == "input":
-            response = input_text(url, reply, "text")
+            response = enter_input(url, reply, "text")
         else:
-            response = click_button(url, reply)
+            response = click(url, reply)
 
         html = get_html(response)
         response = what_next(query, html)
         if response == "Yes":
             features = extract(url)
         else:
-            recurr(links, url)
+            recurr(query, url)
+            
     
 
 
