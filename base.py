@@ -1,8 +1,12 @@
 from transformers import AutoTokenizer
 import requests
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+api_key = os.getenv('API_KEY')
 api_url = "https://api-inference.huggingface.co/models/Qwen/Qwen2.5-Coder-32B-Instruct"
-headers = {"Authorization": "Bearer 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"}
+headers = {"Authorization": f"Bearer {api_key}"}
 
 def query(payload):
     response = requests.post(api_url, headers=headers, json=payload)
